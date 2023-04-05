@@ -18,8 +18,8 @@ const callParam = () => {
         const article = document.querySelector("article");
         article.innerHTML = ` <h2>${element.title}</h2> <p> ${element.description} </p> `;
       }
-    });
-  //  .catch(err => console.error(err));
+    })
+   .catch(catchError)
 };
 button.addEventListener("click", callParam);
 
@@ -37,3 +37,15 @@ button.addEventListener("click", callParam);
 //     x.style.display = "none";
 //   }
 // }
+function catchError(error) {
+  const formError = document.querySelector("form");
+
+  const pTag = document.createElement("p");
+  pTag.textContent = "Something went wrong!";
+
+  const errorMessage = document.createElement("p");
+  errorMessage.classList.add("error-message");
+  errorMessage.textContent = error;
+
+  formError.append(pTag, errorMessage);
+}
