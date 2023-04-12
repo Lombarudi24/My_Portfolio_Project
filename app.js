@@ -1,6 +1,8 @@
 const button = document.querySelector(".dropbtn");
 const div = document.querySelector(".dropdown-content");
 
+
+
 const callParam = () => {
   const options = {
     method: "GET",
@@ -19,33 +21,13 @@ const callParam = () => {
         article.innerHTML = ` <h2>${element.title}</h2> <p> ${element.description} </p> `;
       }
     })
-   .catch(catchError)
-};
+      
+    .catch((error) => {
+      // If response.json() Promise is unsuccessful, do this:
+      console.log(error)
+    });
+}
 button.addEventListener("click", callParam);
 
-// Search players, teams and tournaments.
-// const dropdown = (addDropDownContent) => {
-//     const day = document.querySelectorAll(".day")
-//     dropInput.append(day).innerHTML
-// };
 
-// function myFunction() {
-//   var x = document.getElementById("myDIV");
-//   if (x.style.display === "none") {
-//     x.style.display = "block";
-//   } else {
-//     x.style.display = "none";
-//   }
-// }
-function catchError(error) {
-  const formError = document.querySelector("form");
 
-  const pTag = document.createElement("p");
-  pTag.textContent = "Something went wrong!";
-
-  const errorMessage = document.createElement("p");
-  errorMessage.classList.add("error-message");
-  errorMessage.textContent = error;
-
-  formError.append(pTag, errorMessage);
-}

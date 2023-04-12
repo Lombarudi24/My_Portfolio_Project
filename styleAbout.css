@@ -1,0 +1,15 @@
+
+body{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: rgb(153, 76, 212);
+}
+
+
+
+
+.content-section .content{
+  float: right;
+
+}
+
